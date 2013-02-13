@@ -23,6 +23,9 @@
 		6E36240F16CB8EA800A79711 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3623EA16CB8EA700A79711 /* Foundation.framework */; };
 		6E36241716CB8EA800A79711 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E36241516CB8EA800A79711 /* InfoPlist.strings */; };
 		6E36241A16CB8EA800A79711 /* ABTestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E36241916CB8EA800A79711 /* ABTestsTests.m */; };
+		6E36242616CB900B00A79711 /* ABTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E36242516CB900B00A79711 /* ABTests.m */; };
+		6E36242916CB913F00A79711 /* ABVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E36242816CB913F00A79711 /* ABVariant.m */; };
+		6E36242A16CB913F00A79711 /* ABVariant.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E36242816CB913F00A79711 /* ABVariant.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,11 @@
 		6E36241616CB8EA800A79711 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6E36241816CB8EA800A79711 /* ABTestsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABTestsTests.h; sourceTree = "<group>"; };
 		6E36241916CB8EA800A79711 /* ABTestsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABTestsTests.m; sourceTree = "<group>"; };
+		6E36242316CB8FAF00A79711 /* ABTestsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABTestsDelegate.h; path = ABTest/ABTestsDelegate.h; sourceTree = "<group>"; };
+		6E36242416CB900B00A79711 /* ABTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTests.h; sourceTree = "<group>"; };
+		6E36242516CB900B00A79711 /* ABTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTests.m; sourceTree = "<group>"; };
+		6E36242716CB913F00A79711 /* ABVariant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ABVariant.h; path = ABTest/ABVariant.h; sourceTree = "<group>"; };
+		6E36242816CB913F00A79711 /* ABVariant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ABVariant.m; path = ABTest/ABVariant.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,11 @@
 				6E36240116CB8EA700A79711 /* ABViewController.m */,
 				6E36240316CB8EA700A79711 /* ABViewController.xib */,
 				6E3623EF16CB8EA700A79711 /* Supporting Files */,
+				6E36242316CB8FAF00A79711 /* ABTestsDelegate.h */,
+				6E36242416CB900B00A79711 /* ABTests.h */,
+				6E36242516CB900B00A79711 /* ABTests.m */,
+				6E36242716CB913F00A79711 /* ABVariant.h */,
+				6E36242816CB913F00A79711 /* ABVariant.m */,
 			);
 			path = ABTests;
 			sourceTree = "<group>";
@@ -274,6 +287,8 @@
 				6E3623F516CB8EA700A79711 /* main.m in Sources */,
 				6E3623F916CB8EA700A79711 /* ABAppDelegate.m in Sources */,
 				6E36240216CB8EA700A79711 /* ABViewController.m in Sources */,
+				6E36242616CB900B00A79711 /* ABTests.m in Sources */,
+				6E36242916CB913F00A79711 /* ABVariant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E36241A16CB8EA800A79711 /* ABTestsTests.m in Sources */,
+				6E36242A16CB913F00A79711 /* ABVariant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
