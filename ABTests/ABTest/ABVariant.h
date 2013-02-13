@@ -10,6 +10,6 @@
 
 @interface ABVariant : NSObject
 
-@property (nonatomic, copy) void(^executionBlock)(void);
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, copy) void ( ^executionBlock)(void);
+@property (nonatomic, retain) NSString *name;
 @end

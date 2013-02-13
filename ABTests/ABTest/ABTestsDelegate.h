@@ -11,10 +11,10 @@
 @protocol ABTestsDelegate <NSObject>
 
 @optional
--(void)abtest:(NSString*)testName didDisplayVariant:(NSString*)variantName;
--(void)abtest:(NSString*)testName didSelectVariant:(NSString*)variantName;
+- (void)abtest:(NSString *)testName didDisplayVariant:(NSString *)variantName;
+- (void)abtest:(NSString *)testName didSelectVariant:(NSString *)variantName;
 
--(void)abtestDidReachGoal:(NSString*)testName;
--(void)abtest:(NSString*)testName didReachIntermediateGoal:(NSString*)goalName;
+- (void)abtestDidReachGoal:(NSString *)testName;
+- (void)abtest:(NSString *)testName didReachIntermediateGoal:(NSString *)goalName;
 
 @end

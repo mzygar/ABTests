@@ -11,13 +11,12 @@
 
 @implementation ABVariant
 
-+(id)variantWithName:(NSString*)variantName andBlock:(void(^)(void))block
++ (id)variantWithName:(NSString *)variantName andBlock:( void ( ^)(void) )block
 {
-    ABVariant* variant=[[ABVariant alloc] init];
-    variant.executionBlock=block;
-    variant.name=variantName;
+    ABVariant *variant = [[ABVariant alloc] init];
+    variant.executionBlock = block;
+    variant.name = variantName;
     return variant;
 }
-
 
 @end
