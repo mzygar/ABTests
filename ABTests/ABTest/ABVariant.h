@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy) void ( ^executionBlock)(void);
 @property (nonatomic, retain) NSString *name;
+
++ (id)variantWithName:(NSString *)variantName andBlock:( void ( ^)(void) )block;
 @end

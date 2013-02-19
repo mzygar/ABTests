@@ -16,7 +16,7 @@
     ABVariant *variant = [[ABVariant alloc] init];
     variant.executionBlock = block;
     variant.name = variantName;
-    return variant;
+    return [variant autorelease];
 }
 
 @end

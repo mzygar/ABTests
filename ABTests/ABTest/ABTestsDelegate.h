@@ -14,7 +14,7 @@
 - (void)abtest:(NSString *)testName didDisplayVariant:(NSString *)variantName;
 - (void)abtest:(NSString *)testName didSelectVariant:(NSString *)variantName;
 
-- (void)abtestDidReachGoal:(NSString *)testName;
-- (void)abtest:(NSString *)testName didReachIntermediateGoal:(NSString *)goalName;
+- (void)abtest:(NSString *)testName didReachGoalUsingVariant:(NSString *)variantName;
+- (void)abtest:(NSString *)testName didReachIntermediateGoal:(NSString *)goalName usingVariant:(NSString *)variantName;
 
 @end
