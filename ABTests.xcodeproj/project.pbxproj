@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2ED35316D3CD3D008C465C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E2ED35216D3CD3D008C465C /* libOCMock.a */; };
 		6E3623E916CB8EA700A79711 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3623E816CB8EA700A79711 /* UIKit.framework */; };
 		6E3623EB16CB8EA700A79711 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3623EA16CB8EA700A79711 /* Foundation.framework */; };
 		6E3623ED16CB8EA700A79711 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3623EC16CB8EA700A79711 /* CoreGraphics.framework */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E2ED35216D3CD3D008C465C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOCMock.a; sourceTree = "<group>"; };
 		6E3623E516CB8EA700A79711 /* ABTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3623E816CB8EA700A79711 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6E3623EA16CB8EA700A79711 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,12 +89,21 @@
 				6E36240D16CB8EA800A79711 /* SenTestingKit.framework in Frameworks */,
 				6E36240E16CB8EA800A79711 /* UIKit.framework in Frameworks */,
 				6E36240F16CB8EA800A79711 /* Foundation.framework in Frameworks */,
+				6E2ED35316D3CD3D008C465C /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2ED35116D3CD3D008C465C /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				6E2ED35216D3CD3D008C465C /* libOCMock.a */,
+			);
+			path = lib;
+			sourceTree = SOURCE_ROOT;
+		};
 		6E3623DC16CB8EA700A79711 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +165,7 @@
 		6E36241216CB8EA800A79711 /* ABTestsTests */ = {
 			isa = PBXGroup;
 			children = (
+				6E2ED35116D3CD3D008C465C /* lib */,
 				6E36241816CB8EA800A79711 /* ABTestsTests.h */,
 				6E36241916CB8EA800A79711 /* ABTestsTests.m */,
 				6E36241316CB8EA800A79711 /* Supporting Files */,
@@ -435,8 +447,19 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ABTests/ABTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				INFOPLIST_FILE = "ABTestsTests/ABTestsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"\"$(SRCROOT)/lib/libOCMock.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = NO;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -452,8 +475,19 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ABTests/ABTests-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
 				INFOPLIST_FILE = "ABTestsTests/ABTestsTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/lib\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-force_load",
+					"\"$(SRCROOT)/lib/libOCMock.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = NO;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};

@@ -7,7 +7,9 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "ABTests.h"
 @interface ABTestsTests : SenTestCase
-
+{
+    id delegate;
+}
 @end

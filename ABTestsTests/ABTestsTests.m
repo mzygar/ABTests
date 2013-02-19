@@ -7,14 +7,23 @@
 //
 
 #import "ABTestsTests.h"
+#import "OCMock/OCMock.h"
+
+//Declarations added for testing purposes
+@interface ABTests ()
++ (NSNumber *)chooseTestVariantForTest:(NSString *)testName fromVariants:(NSArray *)variants;
++ (NSNumber *)chosenTestVariantForTest:(NSString *)testName;
++ (void)performAdditionalCode:( void ( ^)(void) )executionBlock forTestWithName:(NSString *)testName usingVariant:(NSString *)variantName;
+@end
+
 
 @implementation ABTestsTests
 
 - (void)setUp
 {
     [super setUp];
-
-    // Set-up code here.
+    delegate = [OCMockObject mockForProtocol:@protocol(ABTestsDelegate)];
+    [ABTests setDelegate:delegate];
 }
 
 - (void)tearDown
@@ -24,9 +33,53 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testIfNotifyingDelegateOfDisplayedVariantWorks
 {
-    STFail(@"Unit tests are not implemented yet in ABTestsTests");
+    [[delegate expect] abtest:[OCMArg any] didDisplayVariant:[OCMArg any]];
+
+    [ABTests testWithName:@"test" A: ^{
+     }
+     B: ^{
+     }
+    ];
+    [delegate verify];
+}
+
+- (void)testIfNotifyingDelegateOfChosenVariantWorks
+{
+    [[delegate expect] abtest:[OCMArg any] didSelectVariant:[OCMArg any]];
+    NSArray *variants = [NSArray arrayWithObjects:[ABVariant variantWithName:nil andBlock:NULL], [ABVariant variantWithName:nil andBlock:NULL], nil];
+    [ABTests chooseTestVariantForTest:@"aa" fromVariants:variants];
+    [delegate verify];
+}
+
+- (void)testIfNotifyingDelegateOfReachingGoalWorks
+{
+    [[delegate expect] abtest:[OCMArg any] didDisplayVariant:[OCMArg any]];
+
+    [[delegate expect] abtest:[OCMArg any] didReachGoalUsingVariant:[OCMArg any]];
+    [ABTests testWithName:@"test" A: ^{
+     }
+     B: ^{
+     }
+    ];
+    [ABTests goalReachedForTest:@"test"];
+
+    [delegate verify];
+}
+
+- (void)testIfNotifyingDelegateOfReachingIntermediateGoalWorks
+{
+    [[delegate expect] abtest:[OCMArg any] didDisplayVariant:[OCMArg any]];
+    [[delegate expect] abtest:[OCMArg any] didReachIntermediateGoal:[OCMArg any] usingVariant:[OCMArg any]];
+    [ABTests testWithName:@"test" A: ^{
+     }
+     B: ^{
+     }
+    ];
+    [ABTests intermediateGoalReached:@"" forTest:@"test"];
+
+    [delegate verify];
 }
 
 @end
