@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ABTests.h"
+@interface ABViewController : UIViewController <ABTestsDelegate>
 
-@interface ABViewController : UIViewController
-
+@property (retain, nonatomic) IBOutlet UILabel *statusLbl;
+@property (retain, nonatomic) IBOutlet UIButton *mainActionBtn;
+- (IBAction)mainActionTouched:(id)sender;
+- (IBAction)secondaryActionTouched:(id)sender;
 @end
