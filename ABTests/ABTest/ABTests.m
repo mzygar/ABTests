@@ -16,7 +16,9 @@
 
 @property (nonatomic, assign) id <ABTestsDelegate> delegate;
 
+// picks random test variant out given array and returns its index
 + (NSNumber *)chooseTestVariantForTest:(NSString *)testName fromVariants:(NSArray *)variants;
+// returns chosen test variant index
 + (NSNumber *)chosenTestVariantForTest:(NSString *)testName;
 
 @end

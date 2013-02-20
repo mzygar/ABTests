@@ -48,8 +48,8 @@
 - (void)testIfNotifyingDelegateOfChosenVariantWorks
 {
     [[delegate expect] abtest:[OCMArg any] didSelectVariant:[OCMArg any]];
-    NSArray *variants = [NSArray arrayWithObjects:[ABVariant variantWithName:nil andBlock:NULL], [ABVariant variantWithName:nil andBlock:NULL], nil];
-    [ABTests chooseTestVariantForTest:@"aa" fromVariants:variants];
+    NSArray *variants = [NSArray arrayWithObjects:[ABVariant variantWithName:@"a" andBlock:NULL], [ABVariant variantWithName:@"b" andBlock:NULL], nil];
+    [ABTests chooseTestVariantForTest:@"testIfNotifyingDelegateOfChosenVariantWorks" fromVariants:variants];
     [delegate verify];
 }
 
@@ -80,6 +80,15 @@
     [ABTests intermediateGoalReached:@"" forTest:@"test"];
 
     [delegate verify];
+}
+
+//this fails, need to take care of nil/duplicate names. Added assertion for now
+- (void)testIfVariantWithNilNameCanBeCreated
+{
+    ABVariant *b = [ABVariant variantWithName:nil andBlock: ^{
+                    }
+                   ];
+    STAssertNil(b, @"Variant with no name should no be created");
 }
 
 @end
